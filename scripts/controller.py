@@ -12,7 +12,6 @@ import time
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 #起動しているodriveを見つけて太郎と名付ける
 taro=odrive.find_any()
 print("太郎発見・セットアップします") 
@@ -53,13 +52,13 @@ def callback(data):
         print("位置制御に切り替わりました")
     elif data.data == 'stop':
         taro.axis1.requested_state = AXIS_STATE_IDLE
- 
+    elif data.data == 'plotout':
+        plotout()
     #太郎の制御
     elif mode == 0:
         taro.axis1.controller.vel_setpoint=int(data.data)
     elif mode == 1:
         taro.axis1.controller.pos_setpoint=int(data.data)
-
         
 
 def controller():
@@ -80,7 +79,7 @@ def controller():
         #データをパブリッシュ
         pub.publish(array)
         rate.sleep()
-    
+
 if __name__ == '__main__':
     try:
         controller()
