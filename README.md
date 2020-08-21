@@ -66,8 +66,6 @@ rosrun rqt_plot rqt_plot
 rosrun rqt_graph rqt_graph
 ```
 ![rqt_graph](https://raw.githubusercontent.com/yuhi-sa/odrive_ros/3377979e7967826d1cfbb0672be701337f0a19ac/rosgraph.svg)
-![rqt_graph2](https://raw.githubusercontent.com/yuhi-sa/odrive_ros/f317e816d04f490abfa8489c9c050e349847e1b2/rosgraph2.svg)
-
 
 # 参考
 - [ODrive Documentation](https://docs.odriverobotics.com/)
