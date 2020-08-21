@@ -4,8 +4,6 @@
   
 odrive_rosデモ動画  
 [![odrive_rosデモ動画](https://img.youtube.com/vi/7yh7Y6mzf2o/0.jpg)](https://www.youtube.com/watch?v=7yh7Y6mzf2o)  
-odrive_ros(プチリモコン)デモ動画  
-[![odrive_ros(プチリモコン)デモ動画](http://img.youtube.com/vi/kdpVe5DpaZo/0.jpg)](http://www.youtube.com/watch?v=kdpVe5DpaZo "")
 
 # 環境
 - [Ubuntu 16.04 LTS](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes/Ja#Ubuntu_16.04.2BMG4wwDCmMPMw7TD8MMk-)
@@ -48,12 +46,12 @@ rosrun odrive_ros command.py
 - pos：位置制御に切替
 - stop：停止
 
-5. プチリモコン起動
+5. GUI操作
 ```
 #新しいターミナルを開く
 roslaunch rosbridge_server rosbridge_websocket.launch
-command.htmlを開く
 ```
+詳しくは，[odrive_gui](https://github.com/yuhi-sa/odrive_gui)
 
 6. ROSでのデータの可視化
 - rqt_plot：x軸が時間，y軸がトピックの値の2次元プロット
@@ -61,7 +59,7 @@ command.htmlを開く
 #別のターミナルを開く
 rosrun rqt_plot rqt_plot
 ```
-![rqt_plot](https://github.com/yuhi-sa/odrive_ros/blob/master/image.png?raw=true)
+![rqt_plot](https://github.com/yuhi-sa/odrive_ros/blob/master/others/image.png?raw=true)
 - rqt_graph：現在動作しているノードの情報を表示
 ```
 #別のターミナルを開く
