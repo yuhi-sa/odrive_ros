@@ -11,6 +11,9 @@ from odrive.enums import *
 import time
 import matplotlib.pyplot as plt
 import numpy as np
+import math
+
+CPR = 8192
 
 
 #起動しているodriveを見つけて太郎と名付ける
@@ -47,13 +50,13 @@ def callback(data):
     if instr == "vel":
         taro.axis1.controller.config.control_mode=CTRL_MODE_VELOCITY_CONTROL
         time.sleep(1)
-        taro.axis1.controller.vel_setpoint=int(val)
+        taro.axis1.controller.vel_setpoint=rad2count(val)
         #mode = 0
         print("速度制御に切り替わりました")
     elif instr == "pos":
         taro.axis1.controller.config.control_mode=CTRL_MODE_POSITION_CONTROL
         time.sleep(1)
-        taro.axis1.controller.pos_setpoint=int(val)
+        taro.axis1.controller.pos_setpoint=rad2count(val)
         #mode = 1
         print("位置制御に切り替わりました")
 
@@ -118,20 +121,6 @@ def callback(data):
         print("太郎準備完了")
         print("現在の制御モードは速度制御")
 
-        #太郎の制御
-        #elif mode == 0:
-        #    taro.axis1.controller.vel_setpoint=int(val)
-        #elif mode == 1:
-        #    taro.axis1.controller.pos_setpoint=int(val)
-        #elif mode == 2:
-        #    taro.axis1.controller.config.pos_gain=val
-        #    taro.axis1.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
-        #elif mode == 3:
-        #    taro.axis1.controller.config.vel_gain=val
-        #    taro.axis1.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
-        #elif mode == 4:
-        #    taro.axis1.controller.config.vel_integrator_gain=val
-        #    taro.axis1.requested_state = AXIS_STATE_CLOSED_LOOP_CONTROL
 
 
 def controller():
@@ -147,14 +136,20 @@ def controller():
     while not rospy.is_shutdown():
         #ステータスデータを記録
         array=Status() #msgに作成したステータスメッセージファイル Status.msg
-        array.pos = np.array(taro.axis1.encoder.pos_estimate % 8192 - 4096, dtype='f8')
-        array.vel = np.array(taro.axis1.encoder.vel_estimate, dtype='f8')
+        array.pos = np.array(count2rad(taro.axis1.encoder.pos_estimate), dtype='f8')
+        array.vel = np.array(count2rad(taro.axis1.encoder.vel_estimate), dtype='f8')
         array.pos_gain = np.array(taro.axis1.controller.config.pos_gain, dtype='f8')
         array.vel_gain_P = np.array(taro.axis1.controller.config.vel_gain, dtype='f8')
         array.vel_gain_I = np.array(taro.axis1.controller.config.vel_integrator_gain, dtype='f8')
         #データをパブリッシュ
         pub.publish(array)
         rate.sleep()
+
+def count2rad(count):
+    return ((count + CPR/2) % CPR - CPR/2) * 2 * np.pi / CPR 
+
+def rad2count(rad):
+    return int(rad * CPR / (2 * np.pi))  
 
 #入力されたデータの分割
 def separate_instr_val(command):
