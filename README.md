@@ -23,8 +23,6 @@ catkin_make
 ```
 cd ~/catkin_ws/src
 git clone clone URL
-cd odrive_ros
-pip install -e.
 ```
 3. 起動
 ```
