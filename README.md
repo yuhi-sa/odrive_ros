@@ -1,7 +1,7 @@
 # odrive_ros
 [ODrive motor](https://odriverobotics.com/)を動かすROSパッケージ．  
 位置制御と速度制御の切り替え，指令値の送信． 位置と速度のリアルタイムプロット．
-  
+
 odrive_rosデモ動画  
 [![odrive_rosデモ動画](https://img.youtube.com/vi/7yh7Y6mzf2o/0.jpg)](https://www.youtube.com/watch?v=7yh7Y6mzf2o)  
 
@@ -51,7 +51,10 @@ roslaunch rosbridge_server rosbridge_websocket.launch
 ```
 詳しくは，[odrive_gui](https://github.com/yuhi-sa/odrive_gui)
 
-6. ROSでのデータの可視化
+6. パッケージの概要
+![](https://github.com/yuhi-sa/odrive_ros/blob/master/fig1.png?raw=true)
+
+7. ROSでのデータの可視化
 - rqt_plot：x軸が時間，y軸がトピックの値の2次元プロット
 ```
 #別のターミナルを開く
