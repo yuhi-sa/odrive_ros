@@ -2,9 +2,6 @@
 [ODrive motor](https://odriverobotics.com/)を動かすROSパッケージ．  
 位置制御と速度制御の切り替え，指令値の送信． 位置と速度のリアルタイムプロット．
 
-odrive_rosデモ動画  
-[![odrive_rosデモ動画](https://img.youtube.com/vi/7yh7Y6mzf2o/0.jpg)](https://www.youtube.com/watch?v=7yh7Y6mzf2o)  
-
 # 環境
 - [Ubuntu 16.04 LTS](https://wiki.ubuntu.com/XenialXerus/ReleaseNotes/Ja#Ubuntu_16.04.2BMG4wwDCmMPMw7TD8MMk-)
 - [ROS kinetic](http://wiki.ros.org/ja/kinetic/Installation/Ubuntu)
