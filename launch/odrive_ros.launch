@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="odrive_ros" name="command" type="command.py"/>
+    <node pkg="odrive_ros" name="controller" type="controller.py"/>
+</launch>
