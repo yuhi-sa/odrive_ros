@@ -49,7 +49,7 @@ roslaunch rosbridge_server rosbridge_websocket.launch
 詳しくは，[odrive_gui](https://github.com/yuhi-sa/odrive_gui)
 
 6. パッケージの概要
-![](https://github.com/yuhi-sa/odrive_ros/blob/master/fig1.png?raw=true)
+<img width="1060" alt="fig1" src="https://user-images.githubusercontent.com/62089243/126146584-b28f1759-a4d6-49a5-b151-2d210b9e83d0.png">
 
 7. ROSでのデータの可視化
 - rqt_plot：x軸が時間，y軸がトピックの値の2次元プロット
@@ -57,13 +57,12 @@ roslaunch rosbridge_server rosbridge_websocket.launch
 #別のターミナルを開く
 rosrun rqt_plot rqt_plot
 ```
-![rqt_plot](https://github.com/yuhi-sa/odrive_ros/blob/master/others/image.png?raw=true)
+
 - rqt_graph：現在動作しているノードの情報を表示
 ```
 #別のターミナルを開く
 rosrun rqt_graph rqt_graph
 ```
-![rqt_graph](https://raw.githubusercontent.com/yuhi-sa/odrive_ros/3377979e7967826d1cfbb0672be701337f0a19ac/rosgraph.svg)
 
 # 参考
 - [ODrive Documentation](https://docs.odriverobotics.com/)
