@@ -2,6 +2,7 @@
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/yuhi-sa/odrive_ros)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/yuhi-sa/odrive_ros)
 ![GitHub top language](https://img.shields.io/github/languages/top/yuhi-sa/odrive_ros)
+![GitHub language count](https://img.shields.io/github/languages/count/yuhi-sa/odrive_ros)
 # odrive_ros
 [ODrive motor](https://odriverobotics.com/)を動かすROSパッケージ．  
 位置制御と速度制御の切り替え，指令値の送信． 位置と速度のリアルタイムプロット．
