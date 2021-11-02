@@ -14,41 +14,36 @@
 
 # 使い方
 1. [ROSワークスペースの作成](http://wiki.ros.org/ja/ROS/Tutorials/InstallingandConfiguringROSEnvironment)
-```
+```bash
 mkdir -p ~/catkin_ws/src
 cd ~/catkin_ws/src
 catkin_init_workspace
 cd ~/catkin_ws/
 catkin_make
 ```
+
 2. [odrive_rosリポジトリのクローン](https://git-scm.com/book/ja/v2/Git-%E3%81%AE%E5%9F%BA%E6%9C%AC-Git-%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%AE%E5%8F%96%E5%BE%97)
-```
+```bash
 cd ~/catkin_ws/src
 git clone clone URL
 ```
+
 3. 起動
-```
+```bash
 cd ~/catkin_ws
-catkin_make #catkinパッケージをビルド
+catkin_make
 roscore 
-
-#別のターミナルを開く
 rosrun odrive_ros controller.py
-#起動と同時にODriveの初期設定をする．(1分ぐらい待つ)
-#太郎準備完了ってでたらOK
-
-#別のターミナルを開く
 rosrun odrive_ros command.py
-#ここで指令値の入力および，制御方法の切り替えを行う
 ```
+
 4. コマンド
 - vel：速度制御に切替
 - pos：位置制御に切替
 - stop：停止
 
 5. GUI操作
-```
-#新しいターミナルを開く
+```bash
 roslaunch rosbridge_server rosbridge_websocket.launch
 ```
 詳しくは，[odrive_gui](https://github.com/yuhi-sa/odrive_gui)
@@ -59,13 +54,11 @@ roslaunch rosbridge_server rosbridge_websocket.launch
 7. ROSでのデータの可視化
 - rqt_plot：x軸が時間，y軸がトピックの値の2次元プロット
 ```
-#別のターミナルを開く
 rosrun rqt_plot rqt_plot
 ```
 
 - rqt_graph：現在動作しているノードの情報を表示
 ```
-#別のターミナルを開く
 rosrun rqt_graph rqt_graph
 ```
 
