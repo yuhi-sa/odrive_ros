@@ -14,8 +14,7 @@ def commander():
     print("現在の制御モードは速度制御")
 
     while not rospy.is_shutdown():
-        msg = str()
-        msg = input()
+        msg = str(input())
         pub.publish(msg)
         rate.sleep()
     
